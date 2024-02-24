@@ -1,0 +1,14 @@
+version: "3"
+services:
+  mongo-container:
+    image: mongo:latest
+    container_name: "mongo-container"
+    ports:
+      - 27017:27017
+  springboot-with-mongodb-container:
+    image: dvlfredysaraujo/api-with-mongo:v3
+    container_name: "springboot-with-mongodb-container"
+    ports:
+      - 8089:8081
+    links:
+      - mongo-container
